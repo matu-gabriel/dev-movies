@@ -5,7 +5,7 @@ import Header from "../components/Header";
 const DefaultLayouts = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Outlet />
     </>
   );
