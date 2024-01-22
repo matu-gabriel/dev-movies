@@ -1,13 +1,13 @@
 import React from "react";
 import { ButtonRed, ButtonWhite } from "./style";
 
-const Button = ({ children, red }) => {
+const Button = ({ children, red, ...props }) => {
   return (
     <>
       {red ? (
-        <ButtonRed>{children}</ButtonRed>
+        <ButtonRed {...props}>{children}</ButtonRed>
       ) : (
-        <ButtonWhite>{children}</ButtonWhite>
+        <ButtonWhite {...props}>{children}</ButtonWhite>
       )}
     </>
   );

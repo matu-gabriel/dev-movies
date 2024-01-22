@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../Card";
 
 const Slider = ({ info, title }) => {
-  console.log(info, title);
-
   return (
     <>
       <Container>
