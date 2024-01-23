@@ -32,7 +32,6 @@ const Home = () => {
 
   useEffect(() => {
     const getAllData = async () => {
-      console.time("time");
       Promise.all([
         getMovies(),
         getTopMovies(),
@@ -48,7 +47,6 @@ const Home = () => {
           setPopularPerson(popularPerson);
         })
         .catch((err) => console.error(err));
-      console.timeEnd("time");
     };
 
     getAllData();
