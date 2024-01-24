@@ -11,8 +11,7 @@ const scale = keyframes`
 
 export const Background = styled.div`
   background-image: url(${(props) => props.image});
-  height: 50vh;
-  background-position: center;
+  height: 60vh;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -83,5 +82,34 @@ export const Info = styled.div`
     font-weight: 700;
     color: #fff;
     margin: 20px 0 30px;
+  }
+`;
+
+export const ContainerMovies = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+    height: 100%;
+    margin: 20px 0;
+  }
+
+  h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  iframe {
+    border: none;
   }
 `;

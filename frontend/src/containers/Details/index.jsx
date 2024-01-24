@@ -8,8 +8,11 @@ import {
 } from "../../services/getData";
 
 import { useParams } from "react-router-dom";
-import { Background, Container, Cover, Info } from "./styles";
+import { Background, Container, ContainerMovies, Cover, Info } from "./styles";
 import { getImages } from "../../utils/getImages";
+import SpanGenres from "../../components/SpanGenres";
+import Credits from "../../components/Credits";
+import Slider from "../../components/Slider";
 
 const Details = () => {
   const { id } = useParams();
@@ -50,11 +53,30 @@ const Details = () => {
             </Cover>
             <Info>
               <h2>{movie.title}</h2>
-              <div>Gêneros</div>
+              <SpanGenres genres={movie.genres} />
               <p>{movie.overview}</p>
-              <div>Creditos</div>
+              <div>
+                <Credits credits={movieCredits} />
+              </div>
             </Info>
           </Container>
+          <ContainerMovies>
+            {movieVideos &&
+              movieVideos.map((video) => (
+                <div key={video.id}>
+                  <h4>{video.name}</h4>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.key}`}
+                    title="Youtube Video Player"
+                    height="500px"
+                    width="100%"
+                  ></iframe>
+                </div>
+              ))}
+          </ContainerMovies>
+          {movieSimilar && (
+            <Slider info={movieSimilar} title={"Filmes similares"} />
+          )}
         </>
       )}
     </>
