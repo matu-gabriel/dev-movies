@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import api from "../../services/api";
 
 import {
   Background,
@@ -40,7 +39,7 @@ const Home = () => {
         getPopularPerson(),
       ])
         .then(([movie, topMovie, topSeries, popularSeries, popularPerson]) => {
-          setMovie(movie);
+          setMovie(movie[0]);
           setTopMovie(topMovie);
           setTopSeries(topSeries);
           setPopularSeries(popularSeries);
