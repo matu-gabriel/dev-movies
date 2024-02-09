@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   getMovies,
   getNowPlaying,
@@ -11,6 +11,7 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider";
 import Modal from "../../components/Modal";
+import SearchScreen from "../../components/SearchScreen";
 
 const Movies = () => {
   const [movies, setMovies] = useState();
@@ -19,7 +20,6 @@ const Movies = () => {
   const [nowPlaying, setNowPlaying] = useState();
   const [upcoming, setUpcoming] = useState();
   const navigate = useNavigate();
-  console.log(movies);
 
   useEffect(() => {
     const getData = async () => {
@@ -38,35 +38,41 @@ const Movies = () => {
   return (
     <>
       {movies && (
-        <Background img={getImages(movies.backdrop_path)}>
-          {showModal && (
-            <Modal movieId={movies.id} setShowModal={setShowModal} />
-          )}
-          <Container>
-            <Info>
-              <h1>{movies.title}</h1>
-              <p>{movies.overview}</p>
-              <ContainerButtons>
-                <Button onClick={() => navigate(`/detalhe/${movies.id}`)} red>
-                  Assista agora
-                </Button>
-                <Button onClick={() => setShowModal(true)}>
-                  Assista o trailer
-                </Button>
-              </ContainerButtons>
-            </Info>
-            <Poster>
-              <img
-                src={getImages(movies.poster_path)}
-                alt="imagem-capa-filme"
-              />
-            </Poster>
-          </Container>
-        </Background>
+        <>
+          <Background img={getImages(movies.backdrop_path)}>
+            {showModal && (
+              <Modal movieId={movies.id} setShowModal={setShowModal} />
+            )}
+            <Container>
+              <Info>
+                <h1>{movies.title}</h1>
+                <p>{movies.overview}</p>
+                <ContainerButtons>
+                  <Button onClick={() => navigate(`/detalhe/${movies.id}`)} red>
+                    Assista agora
+                  </Button>
+                  <Button onClick={() => setShowModal(true)}>
+                    Assista o trailer
+                  </Button>
+                </ContainerButtons>
+              </Info>
+              <Poster>
+                <img
+                  src={getImages(movies.poster_path)}
+                  alt="imagem-capa-filme"
+                />
+              </Poster>
+            </Container>
+          </Background>
+          <div>
+            {topMovie && <Slider info={topMovie} title={"Top Filmes"} />}
+            {nowPlaying && (
+              <Slider info={nowPlaying} title={"Assistir agora"} />
+            )}
+            {upcoming && <Slider info={upcoming} title={"Em breve"} />}
+          </div>
+        </>
       )}
-      {topMovie && <Slider info={topMovie} title={"Top Filmes"} />}
-      {nowPlaying && <Slider info={nowPlaying} title={"Assistir agora"} />}
-      {upcoming && <Slider info={upcoming} title={"Em breve"} />}
     </>
   );
 };

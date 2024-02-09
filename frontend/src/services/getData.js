@@ -94,6 +94,13 @@ export const getNowPlaying = async () => {
 export const getUpcoming = async () => {
   const {
     data: { results },
-  } = await api.get("./movie/upcoming");
+  } = await api.get("/movie/upcoming");
+  return results;
+};
+
+export const getKeyword = async (nameMovie) => {
+  const {
+    data: { results },
+  } = await api.get(`/search/multi?query=${nameMovie}`);
   return results;
 };

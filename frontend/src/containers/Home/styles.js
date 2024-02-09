@@ -69,3 +69,10 @@ export const ContainerButtons = styled.div`
   gap: 20px;
   margin-top: 20px;
 `;
+
+export const Tela = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+`;
