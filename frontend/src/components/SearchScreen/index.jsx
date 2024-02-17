@@ -6,10 +6,11 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import Card from "../Card";
 
-const SearchScreen = ({ keyword }) => {
+const SearchScreen = ({ keyword, search }) => {
   return (
     <>
       <Container>
+        <h1>Relacionados a "{search}"</h1>
         <h2>{keyword.title}</h2>
         <Swiper
           grabCursor={true}

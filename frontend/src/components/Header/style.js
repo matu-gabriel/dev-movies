@@ -32,7 +32,29 @@ export const Li = styled.li`
     color: #fff;
   }
 
-  &::after {
+  input {
+    padding: 8px;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 10px;
+    color: #ddd;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  &:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:nth-child(-n + 3)&::after {
     content: "";
     height: 3px;
     width: ${(props) => (props.isActive ? "100%" : 0)};
@@ -44,7 +66,7 @@ export const Li = styled.li`
     transition: width 0.5s ease-in-out;
   }
 
-  &:hover::after {
+  &:nth-child(-n + 3)&:hover::after {
     width: 100%;
   }
 `;

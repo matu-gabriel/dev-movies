@@ -18,7 +18,7 @@ export const Background = styled.div`
   align-items: center;
   justify-content: center;
 
-  &::before {
+  /* &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -26,7 +26,7 @@ export const Background = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-  }
+  } */
 `;
 
 export const Container = styled.div`
