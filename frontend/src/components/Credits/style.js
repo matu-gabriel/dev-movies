@@ -22,5 +22,10 @@ export const Container = styled.div`
 
   img {
     height: 200px;
+    transition: 1s ease-in-out all;
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 `;

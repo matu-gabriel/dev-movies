@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-
-import TextField from "@mui/material/TextField";
+import React, { useState, useEffect } from "react";
 
 import {
   Background,
@@ -8,26 +6,21 @@ import {
   Poster,
   Container,
   ContainerButtons,
-  Tela,
 } from "./styles";
 import Button from "../../components/Button";
 import Slider from "../../components/Slider";
 import { getImages } from "../../utils/getImages";
-import Modal from "../../components/Modal";
 import { useNavigate } from "react-router-dom";
 import {
-  getKeyword,
   getMovies,
   getPopularPerson,
   getPopularSeries,
   getTopMovies,
   getTopSeries,
 } from "../../services/getData";
-import SearchScreen from "../../components/SearchScreen";
 
 const Home = () => {
   const [movie, setMovie] = useState();
-  const [showModal, setShowModal] = useState(false);
   const [topMovie, setTopMovie] = useState();
   const [topseries, setTopSeries] = useState();
   const [popularSeries, setPopularSeries] = useState();
@@ -45,7 +38,7 @@ const Home = () => {
         getPopularPerson(),
       ])
         .then(([movie, topMovie, topSeries, popularSeries, popularPerson]) => {
-          setMovie(movie[0]);
+          setMovie(movie[Math.floor(Math.random() * 19)]);
           setTopMovie(topMovie);
           setTopSeries(topSeries);
           setPopularSeries(popularSeries);
@@ -62,9 +55,6 @@ const Home = () => {
       {movie && (
         <>
           <Background img={getImages(movie.backdrop_path)}>
-            {showModal && (
-              <Modal movieId={movie.id} setShowModal={setShowModal} />
-            )}
             <Container>
               <Info>
                 <h1>{movie.title}</h1>
@@ -72,9 +62,6 @@ const Home = () => {
                 <ContainerButtons>
                   <Button onClick={() => navigate(`/detalhe/${movie.id}`)} red>
                     Assista agora
-                  </Button>
-                  <Button onClick={() => setShowModal(true)}>
-                    Assista o trailer
                   </Button>
                 </ContainerButtons>
               </Info>

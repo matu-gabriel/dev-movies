@@ -16,6 +16,7 @@ export const Background = styled.div`
   background-repeat: no-repeat;
   position: relative;
 
+
   &::before {
     content: "";
     position: absolute;

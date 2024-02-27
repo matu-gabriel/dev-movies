@@ -10,11 +10,9 @@ import { getImages } from "../../utils/getImages";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider";
-import Modal from "../../components/Modal";
 
 const Movies = () => {
   const [popularSeries, setPopularSeries] = useState();
-  const [showModal, setShowModal] = useState(false);
   const [topSeries, setTopSeries] = useState();
   const [onTheAir, setOnTheAir] = useState();
   const [airingToday, setAiringToday] = useState();
@@ -45,9 +43,6 @@ const Movies = () => {
     <>
       {popularSeries && (
         <Background img={getImages(popularSeries.backdrop_path)}>
-          {showModal && (
-            <Modal movieId={popularSeries.id} setShowModal={setShowModal} />
-          )}
           <Container>
             <Info>
               <h1>{popularSeries.title}</h1>
@@ -60,9 +55,6 @@ const Movies = () => {
                   red
                 >
                   Assista agora
-                </Button>
-                <Button onClick={() => setShowModal(true)}>
-                  Assista o trailer
                 </Button>
               </ContainerButtons>
             </Info>

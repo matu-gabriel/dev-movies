@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  z-index: 99;
+  z-index: 9999;
   position: fixed;
   top: 0;
   display: flex;
@@ -60,7 +60,7 @@ export const Li = styled.li`
     width: ${(props) => (props.isActive ? "100%" : 0)};
     background-color: #189b20;
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     transition: width 0.5s ease-in-out;
