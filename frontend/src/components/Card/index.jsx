@@ -1,25 +1,26 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+// import React from "react";
 import { Container } from "./style";
 import { getImages } from "../../utils/getImages";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Card = ({ item }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const cliquei = (id) => {
-    try {
-      navigate(`/detalhe/${id}`);
-      console.log("Deu bom");
-    } catch (error) {
-      console.log(`Deu ruim ${error}`);
-    }
-    console.log(id);
-  };
+  // const cliquei = (id) => {
+  //   try {
+  //     navigate(`/detalhe/${id}`);
+  //     console.log("Deu bom");
+  //   } catch (error) {
+  //     console.log(`Deu ruim ${error}`);
+  //   }
+  //   console.log(id);
+  // };
 
   return (
     <Container>
       <button
-        onClick={() => cliquei(item.id)}
+        // onClick={() => cliquei(item.id)}
         style={{ border: "none", backgroundColor: "transparent" }}
       >
         <img

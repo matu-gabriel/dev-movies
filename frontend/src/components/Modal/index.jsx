@@ -13,6 +13,9 @@ const Modal = ({ movieId, setShowModal }) => {
     getMovies();
   }, []);
 
+  console.log(movie)
+  console.log(movieId)
+
   return (
     <>
       <Background onClick={() => setShowModal(false)}>

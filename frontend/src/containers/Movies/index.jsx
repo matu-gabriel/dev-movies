@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getMovies,
   getNowPlaying,
@@ -11,7 +11,6 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider";
 import Modal from "../../components/Modal";
-import SearchScreen from "../../components/SearchScreen";
 
 const Movies = () => {
   const [movies, setMovies] = useState();
@@ -50,9 +49,6 @@ const Movies = () => {
                 <ContainerButtons>
                   <Button onClick={() => navigate(`/detalhe/${movies.id}`)} red>
                     Assista agora
-                  </Button>
-                  <Button onClick={() => setShowModal(true)}>
-                    Assista o trailer
                   </Button>
                 </ContainerButtons>
               </Info>

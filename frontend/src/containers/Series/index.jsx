@@ -39,8 +39,6 @@ const Movies = () => {
     getData();
   }, []);
 
-  console.log(airingToday);
-
   return (
     <>
       {popularSeries && (
@@ -54,15 +52,12 @@ const Movies = () => {
               <p>{popularSeries.overview}</p>
               <ContainerButtons>
                 <Button
-                  onClick={() =>
-                    navigate(`/detalhe/${popularSeries.genre_ids[0]}`)
-                  }
-                  red
+                // onClick={() =>
+                //   navigate(`/detalhe/${popularSeries.genre_ids[0]}`)
+                // }
+                // red
                 >
                   Assista agora
-                </Button>
-                <Button onClick={() => setShowModal(true)}>
-                  Assista o trailer
                 </Button>
               </ContainerButtons>
             </Info>

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
-import TextField from "@mui/material/TextField";
 
 import {
   Background,
@@ -8,7 +7,6 @@ import {
   Poster,
   Container,
   ContainerButtons,
-  Tela,
 } from "./styles";
 import Button from "../../components/Button";
 import Slider from "../../components/Slider";
@@ -16,14 +14,12 @@ import { getImages } from "../../utils/getImages";
 import Modal from "../../components/Modal";
 import { useNavigate } from "react-router-dom";
 import {
-  getKeyword,
   getMovies,
   getPopularPerson,
   getPopularSeries,
   getTopMovies,
   getTopSeries,
 } from "../../services/getData";
-import SearchScreen from "../../components/SearchScreen";
 
 const Home = () => {
   const [movie, setMovie] = useState();
