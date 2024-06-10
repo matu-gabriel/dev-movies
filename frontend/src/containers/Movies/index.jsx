@@ -10,12 +10,14 @@ import { getImages } from "../../utils/getImages";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider";
+<<<<<<< HEAD
 import Modal from "../../components/Modal";
+=======
+>>>>>>> 0e8dd4c0415a5f9443758d0691acaa6af1740f25
 
 const Movies = () => {
   const [movies, setMovies] = useState();
   const [topMovie, setTopMovie] = useState();
-  const [showModal, setShowModal] = useState(false);
   const [nowPlaying, setNowPlaying] = useState();
   const [upcoming, setUpcoming] = useState();
   const navigate = useNavigate();
@@ -39,9 +41,6 @@ const Movies = () => {
       {movies && (
         <>
           <Background img={getImages(movies.backdrop_path)}>
-            {showModal && (
-              <Modal movieId={movies.id} setShowModal={setShowModal} />
-            )}
             <Container>
               <Info>
                 <h1>{movies.title}</h1>
